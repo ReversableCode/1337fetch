@@ -1,0 +1,22 @@
+#!/bin/bash
+campus=$1
+uptime=$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//' | sed 's/:/h/g')
+uname=$(uname -a | awk '{print $2}' | rev | cut -c 11- | rev)
+GREEN="$(tput setaf 10)"
+nc="$(tput sgr0)"
+c0="$(tput setaf 12)"
+
+cat <<EOF
+${nc} 
+${nc} 
+${nc}      .::::   ::::::::    ::::::::   :::::::::::
+${nc}    +:+:+:  :+:    :+:  :+:    :+:  :+:     :+:     
+${nc}      +:+        +:+         +:+          +:+       ${GREEN}User     : ${nc}${USER}@${uname}
+${nc}     +#+      +#++:       +#++:         +#+         
+${nc}    +#+        +#+         +#+        +#+           ${GREEN}Campus   : ${nc}${campus}
+${nc}   #+#    #+#   #+#   #+#   #+#      #+#            ${GREEN}Uptime   : ${nc}${uptime}
+${nc}  ###      #######     #######      ###.ma
+${nc} 
+${nc}           <${GREEN} FUTURE:${nc} IS_LOADING />
+${nc} 
+EOF
