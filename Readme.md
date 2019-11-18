@@ -7,6 +7,6 @@
 * add the following lines to .zshrc 
 ```
 clear
-101fetch "~CAMPUS~"
+1337fetch "~CAMPUS~"
 ```
 * replace ~CAMPUS~ with your campus and there you go
